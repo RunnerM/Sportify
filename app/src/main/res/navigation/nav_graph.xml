@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph.xml"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="net.mpentek.sportify.ui.MainFragment"
+              android:label="fragment_main"
+              tools:layout="@layout/fragment_main">
+        <action android:id="@+id/action_mainFragment_to_settings_fragment" app:destination="@id/settings_fragment"/>
+        <action android:id="@+id/action_mainFragment_to_add_fragment" app:destination="@id/add_fragment"/>
+        <action android:id="@+id/action_mainFragment_to_workout_fragment" app:destination="@id/workout_fragment"/>
+        <action android:id="@+id/action_mainFragment_to_workout_view_fragment"
+                app:destination="@id/workout_view_fragment"/>
+    </fragment>
+    <fragment android:id="@+id/settings_fragment"
+              android:name="net.mpentek.sportify.ui.SettingsFragment"
+              android:label="fragment_view_transaction"
+              tools:layout="@layout/fragment_settings"/>
+    <fragment android:id="@+id/add_fragment"
+              android:name="net.mpentek.sportify.ui.AddFragment"
+              android:label="fragment_view_transaction"
+              tools:layout="@layout/fragment_add"/>
+    <fragment android:id="@+id/workout_fragment"
+              android:name="net.mpentek.sportify.ui.WorkoutFragment"
+              android:label="fragment_view_transaction"
+              tools:layout="@layout/fragment_workout"/>
+
+    <fragment android:id="@+id/workout_view_fragment"
+              android:name="net.mpentek.sportify.ui.ViewWorkoutFragment"
+              android:label="fragment_view_transaction"
+              tools:layout="@layout/fragment_view_workout"/>
+
+</navigation>
