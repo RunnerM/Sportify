@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         appBar.setFabAlignmentMode(appBar.FAB_ALIGNMENT_MODE_END);
                         floating_btn.setImageResource(R.drawable.ic_baseline_arrow_back_24);
                         navController.navigate(R.id.action_mainFragment_to_settings_fragment);
+                        setUpSettings();
                     }
                     return true;
                 case R.id.about_menu_item:
@@ -97,17 +98,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return false;
             }
         });
+    }
 
-        //Settings
+    private void setUpSettings(){
         distanceSwitch= findViewById(R.id.switch_distance);
         weightSwitch = findViewById(R.id.switch_weight);
 
-        SettingsViewModel model = new ViewModelProvider(this).get(SettingsViewModel.class);
-        model.getData().observe(this, prefs -> {
-            // itt a hiba bitches
-            distanceSwitch.setText(prefs.get(0));
-            weightSwitch.setText(prefs.get(1));
-        });
+//        SettingsViewModel model = new ViewModelProvider(this).get(SettingsViewModel.class);
+//        model.getData().observe(this, prefs -> {
+//            // itt a hiba bitches
+//            if(distanceSwitch!=null && weightSwitch!=null){
+//                distanceSwitch.setText(prefs.get(0));
+//                weightSwitch.setText(prefs.get(1));
+//            }
+//
+//        });
 
 //        distanceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
@@ -133,7 +138,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        });
     }
 
+
     public void storePrefs(){
+        distanceSwitch= findViewById(R.id.switch_distance);
+        weightSwitch = findViewById(R.id.switch_weight);
         String distance= distanceSwitch.getText().toString();
         String weight = weightSwitch.getText().toString();
         model.savePref("distance",distance);
