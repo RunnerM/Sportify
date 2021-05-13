@@ -8,20 +8,32 @@
               android:name="net.mpentek.sportify.ui.MainFragment"
               android:label="fragment_main"
               tools:layout="@layout/fragment_main">
-        <action android:id="@+id/action_mainFragment_to_settings_fragment" app:destination="@id/settings_fragment"/>
-        <action android:id="@+id/action_mainFragment_to_add_fragment" app:destination="@id/add_fragment"/>
+        <action android:id="@+id/action_mainFragment_to_settings_fragment" app:destination="@id/settings_fragment"
+                app:enterAnim="@android:anim/slide_in_left" app:exitAnim="@android:anim/slide_out_right"
+                app:popExitAnim="@android:anim/slide_out_right"/>
+        <action android:id="@+id/action_mainFragment_to_add_fragment" app:destination="@id/add_fragment"
+                app:enterAnim="@android:anim/fade_in" app:exitAnim="@android:anim/fade_out"
+                app:popExitAnim="@android:anim/fade_out"/>
         <action android:id="@+id/action_mainFragment_to_workout_fragment" app:destination="@id/workout_fragment"/>
         <action android:id="@+id/action_mainFragment_to_workout_view_fragment"
                 app:destination="@id/workout_view_fragment"/>
+        <action android:id="@+id/action_mainFragment_to_about_fragment" app:destination="@id/about_fragment"
+                app:enterAnim="@android:anim/slide_in_left" app:exitAnim="@android:anim/slide_out_right"
+                app:popExitAnim="@android:anim/slide_out_right"/>
+        <action android:id="@+id/action_mainFragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
     </fragment>
     <fragment android:id="@+id/settings_fragment"
               android:name="net.mpentek.sportify.ui.SettingsFragment"
               android:label="fragment_view_transaction"
-              tools:layout="@layout/fragment_settings"/>
+              tools:layout="@layout/fragment_settings">
+        <action android:id="@+id/action_settings_fragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
+    </fragment>
     <fragment android:id="@+id/add_fragment"
               android:name="net.mpentek.sportify.ui.AddFragment"
               android:label="fragment_view_transaction"
-              tools:layout="@layout/fragment_add"/>
+              tools:layout="@layout/fragment_add">
+        <action android:id="@+id/action_add_fragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
+    </fragment>
     <fragment android:id="@+id/workout_fragment"
               android:name="net.mpentek.sportify.ui.WorkoutFragment"
               android:label="fragment_view_transaction"
@@ -31,5 +43,15 @@
               android:name="net.mpentek.sportify.ui.ViewWorkoutFragment"
               android:label="fragment_view_transaction"
               tools:layout="@layout/fragment_view_workout"/>
+    <fragment android:id="@+id/about_fragment"
+              android:name="net.mpentek.sportify.ui.AboutFragment"
+              android:label="fragment_view_transaction"
+              tools:layout="@layout/fragment_about">
+        <action android:id="@+id/action_about_fragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
+    </fragment>
+    <fragment android:id="@+id/profile_fragment"
+              android:name="net.mpentek.sportify.ui.ProfileFragment"
+              android:label="fragment_view_transaction"
+              tools:layout="@layout/fragment_profile"/>
 
 </navigation>
