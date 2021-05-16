@@ -31,4 +31,5 @@ public class ViewWorkoutFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_view_workout, container, false);
     }
+
 }

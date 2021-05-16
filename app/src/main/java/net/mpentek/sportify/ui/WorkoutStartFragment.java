@@ -7,17 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import net.mpentek.sportify.R;
 
-public class WorkoutFragment extends Fragment {
+public class WorkoutStartFragment extends Fragment {
 
 
-
-    public WorkoutFragment() {
+    public WorkoutStartFragment() {
         // Required empty public constructor
     }
 
-    public static WorkoutFragment newInstance() {
-        WorkoutFragment fragment = new WorkoutFragment();
 
+    public static WorkoutStartFragment newInstance() {
+        WorkoutStartFragment fragment = new WorkoutStartFragment();
         return fragment;
     }
 
@@ -30,6 +29,6 @@ public class WorkoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_workout, container, false);
+        return inflater.inflate(R.layout.fragment_workout_start, container, false);
     }
 }

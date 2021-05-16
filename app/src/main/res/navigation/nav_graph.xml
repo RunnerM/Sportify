@@ -3,6 +3,8 @@
             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_graph.xml"
             app:startDestination="@id/mainFragment">
+    <action android:id="@+id/action_global_to_sing_in"
+            app:destination="@+id/sing_in_activity"/>
 
     <fragment android:id="@+id/mainFragment"
               android:name="net.mpentek.sportify.ui.MainFragment"
@@ -20,19 +22,27 @@
         <action android:id="@+id/action_mainFragment_to_about_fragment" app:destination="@id/about_fragment"
                 app:enterAnim="@android:anim/slide_in_left" app:exitAnim="@android:anim/slide_out_right"
                 app:popExitAnim="@android:anim/slide_out_right"/>
-        <action android:id="@+id/action_mainFragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
+        <action android:id="@+id/action_mainFragment_to_profile_fragment" app:destination="@id/profile_fragment"
+                app:enterAnim="@android:anim/fade_in" app:exitAnim="@android:anim/fade_out"
+                app:popExitAnim="@android:anim/fade_out"/>
     </fragment>
     <fragment android:id="@+id/settings_fragment"
               android:name="net.mpentek.sportify.ui.SettingsFragment"
               android:label="fragment_view_transaction"
               tools:layout="@layout/fragment_settings">
-        <action android:id="@+id/action_settings_fragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
+        <action android:id="@+id/action_settings_fragment_to_profile_fragment" app:destination="@id/profile_fragment"
+                app:enterAnim="@android:anim/fade_in" app:exitAnim="@android:anim/fade_out"
+                app:popExitAnim="@android:anim/fade_out"/>
     </fragment>
     <fragment android:id="@+id/add_fragment"
               android:name="net.mpentek.sportify.ui.AddFragment"
               android:label="fragment_view_transaction"
               tools:layout="@layout/fragment_add">
-        <action android:id="@+id/action_add_fragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
+        <action android:id="@+id/action_add_fragment_to_profile_fragment" app:destination="@id/profile_fragment"
+                app:enterAnim="@android:anim/fade_in" app:exitAnim="@android:anim/fade_out"
+                app:popExitAnim="@android:anim/fade_out"/>
+        <action android:id="@+id/action_add_fragment_to_specify_step_fragment"
+                app:destination="@id/specify_step_fragment"/>
     </fragment>
     <fragment android:id="@+id/workout_fragment"
               android:name="net.mpentek.sportify.ui.WorkoutFragment"
@@ -47,11 +57,25 @@
               android:name="net.mpentek.sportify.ui.AboutFragment"
               android:label="fragment_view_transaction"
               tools:layout="@layout/fragment_about">
-        <action android:id="@+id/action_about_fragment_to_profile_fragment" app:destination="@id/profile_fragment"/>
+        <action android:id="@+id/action_about_fragment_to_profile_fragment" app:destination="@id/profile_fragment"
+                app:enterAnim="@android:anim/fade_in" app:exitAnim="@android:anim/fade_out"
+                app:popExitAnim="@android:anim/fade_out"/>
     </fragment>
     <fragment android:id="@+id/profile_fragment"
               android:name="net.mpentek.sportify.ui.ProfileFragment"
               android:label="fragment_view_transaction"
               tools:layout="@layout/fragment_profile"/>
+    <fragment android:id="@+id/specify_step_fragment"
+              android:name="net.mpentek.sportify.ui.SpecifyStepsFragment"
+              android:label="fargment_specify_steps"
+              tools:layout="@layout/fragment_specify_steps">
+        <action android:id="@+id/action_specify_step_fragment_self" app:destination="@id/specify_step_fragment"/>
+        <action android:id="@+id/action_specify_step_fragment_to_mainFragment" app:destination="@id/mainFragment"/>
+    </fragment>
+
+    <activity android:id="@+id/sing_in_activity"
+              android:name="net.mpentek.sportify.ui.SingInActivity"
+              android:label="sing_in_activity"
+              tools:layout="@layout/activity_sing_in"/>
 
 </navigation>

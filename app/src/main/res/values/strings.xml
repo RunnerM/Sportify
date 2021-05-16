@@ -113,4 +113,5 @@
     <string name="Mile">mile</string>
     <string name="Kilogramm">kg</string>
     <string name="Pound">pound</string>
+    <string name="sign_in">Sign in</string>
 </resources>

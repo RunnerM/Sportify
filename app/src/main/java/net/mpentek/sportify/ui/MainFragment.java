@@ -1,11 +1,14 @@
 package net.mpentek.sportify.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import net.mpentek.sportify.R;
 import net.mpentek.sportify.model.Workout;
 import net.mpentek.sportify.model.WorkoutAdapter;
+import net.mpentek.sportify.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
 
@@ -25,7 +29,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     View mainactivity;
     BottomAppBar bar;
     FloatingActionButton btn;
-
+    MainViewModel viewModel;
 
     public MainFragment() {
         // Required empty public constructor
@@ -58,39 +62,13 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         btn= mainactivity.findViewById(R.id.floating_button);
         btn.setOnClickListener(this);
 
-//Todo: create recycle view.
-        Rv= view.findViewById(R.id.workoutRV);
-        Rv.hasFixedSize();
-        //Rv.setLayoutManager(new LinearLayoutManager(this));
-
-        ArrayList<Workout> workouts = new ArrayList<Workout>();
-        workouts.add(new Workout("Run"));
-        workouts.add(new Workout("Run"));
-        workouts.add(new Workout("Run"));
-        workouts.add(new Workout("Run"));
-        adapter = new WorkoutAdapter(workouts);
-        Rv.setAdapter(adapter);
-
-
-
-       //view.findViewById(R.id.btn).setOnClickListener(this);
-
-
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        checkIfSignedIn();
     }
 
     @Override
     public void onClick(View v) {
-        View mainactivity= getActivity().findViewById(R.id.Main_activity);
-        BottomAppBar bar= mainactivity.findViewById(R.id.bottomAppBar);
-        FloatingActionButton btn= mainactivity.findViewById(R.id.floating_button);
         switch (v.getId()){
-//            case R.id.btn:
-//                navController.navigate(R.id.action_mainFragment_to_add_fragment);
-//
-//                bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
-//                btn.setOnClickListener(this);
-//                btn.setImageResource(R.drawable.ic_baseline_arrow_back_24);
-//                break;
 
             case R.id.floating_button:
                 navController.navigate(R.id.action_mainFragment_to_add_fragment);
@@ -98,5 +76,18 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 btn.setImageResource(R.drawable.ic_baseline_arrow_back_24);
 
         }
+    }
+
+    private void checkIfSignedIn() {
+        viewModel.getCurrentUser().observe(getViewLifecycleOwner(), user -> {
+            if (user != null) {
+
+            } else
+                startLoginActivity();
+        });
+    }
+    private void startLoginActivity() {
+        navController.navigate(R.id.action_global_to_sing_in);
+        getActivity().finish();
     }
 }

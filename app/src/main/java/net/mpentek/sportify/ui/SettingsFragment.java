@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mainactivity = getActivity().findViewById(R.id.Main_activity);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                navController.navigateUp();
+                NavBarBackToMain();
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override
@@ -78,12 +87,12 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         mainactivity = getActivity().findViewById(R.id.Main_activity);
         bar = mainactivity.findViewById(R.id.bottomAppBar);
+        bar.getMenu().setGroupVisible(R.id.group, false);
         btn = mainactivity.findViewById(R.id.floating_button);
         btn.setOnClickListener(this);
         bar.getNavigationIcon().setVisible(false, true);
 
         navController = Navigation.findNavController(view);
-        bar.getMenu().setGroupVisible(R.id.group, false);
 
 
         distanceSwitch = getActivity().findViewById(R.id.switch_distance);
@@ -124,9 +133,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.floating_button:
                 getActivity().onBackPressed();
-                bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
-                btn.setImageResource(R.drawable.ic_round_add_24);
-                bar.getMenu().setGroupVisible(R.id.group, true);
         }
+    }
+    private void NavBarBackToMain(){
+        bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+        btn.setImageResource(R.drawable.ic_round_add_24);
+        bar.getMenu().setGroupVisible(R.id.group,true);
     }
 }

@@ -3,11 +3,13 @@
              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ui.AboutFragment">
+             tools:context=".ui.AboutFragment"
+             >
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-                                                       android:layout_height="match_parent">
+                                                       android:layout_height="match_parent"
+                                                       android:background="@color/Background_color">
 
 
         <TextView
@@ -49,6 +51,7 @@
                 app:layout_constraintVertical_bias="0.617" android:textSize="18sp"/>
         <TextView
                 android:text="contact@mpentek.net"
+                android:autoLink="email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView9"
                 app:layout_constraintStart_toEndOf="@+id/textView7" app:layout_constraintEnd_toEndOf="parent"

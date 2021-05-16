@@ -35,10 +35,10 @@ android:id="@+id/Main_activity">
             app:navigationIcon="@drawable/ic_baseline_accessibility_new_24"
             app:menu="@menu/bottom_app_bar_menu"
             app:hideOnScroll="false"
-            app:fabAnimationMode="scale"
+            app:fabAnimationMode="slide"
             app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleMargin="15dp"
-            app:fabCradleVerticalOffset="5dp"
+            app:fabCradleMargin="5dp"
+            app:fabCradleVerticalOffset="0dp"
 
     />
 

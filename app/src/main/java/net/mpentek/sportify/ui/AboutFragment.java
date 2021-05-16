@@ -1,6 +1,7 @@
 package net.mpentek.sportify.ui;
 
 import android.os.Bundle;
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +32,15 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                navController.navigateUp();
+                NavBarBackToMain();
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,9 +61,6 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         bar.getMenu().setGroupVisible(R.id.group,false);
 
 
-        //view.findViewById(R.id.btn).setOnClickListener(this);
-
-
     }
 
     @Override
@@ -63,10 +68,12 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.floating_button:
                 getActivity().onBackPressed();
-                bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
-                btn.setImageResource(R.drawable.ic_round_add_24);
-                bar.getMenu().setGroupVisible(R.id.group,true);
-
         }
+    }
+
+    private void NavBarBackToMain(){
+        bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+        btn.setImageResource(R.drawable.ic_round_add_24);
+        bar.getMenu().setGroupVisible(R.id.group,true);
     }
 }
