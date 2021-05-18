@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sportify</string>
+    <string name="settings">Beallitasok</string>
+    <string name="content_description_more">Beallitasok</string>
+    <string name="about">Rolunk</string>
+    <string name="sign_in">Bejelentkezes</string>
+    <string name="Mile">merfold</string>
+</resources>

@@ -13,6 +13,7 @@ public class Workout {
     private String name;
     private String type;
     private Date date;
+    private boolean plan;
 
 
     public Workout(String name,String type) {
@@ -56,5 +57,13 @@ public class Workout {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public boolean isPlan() {
+        return plan;
+    }
+
+    public void setPlan(boolean plan) {
+        this.plan = plan;
     }
 }
