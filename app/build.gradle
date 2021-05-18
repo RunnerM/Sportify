@@ -61,6 +61,8 @@ dependencies {
     //implementation 'com.facebook.android:facebook-android-sdk:4.0.0'
     //implementation 'com.twitter.sdk.android:twitter-core:3.0.0'
     implementation 'com.google.firebase:firebase-analytics'
+    implementation("androidx.room:room-runtime:2.3.0")
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
 
 }
 apply plugin: 'com.google.gms.google-services'

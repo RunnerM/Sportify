@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import net.mpentek.sportify.R;
+import net.mpentek.sportify.data.Room.WorkoutWithSteps;
 import net.mpentek.sportify.model.Workout;
 import net.mpentek.sportify.model.WorkoutAdapter;
 import net.mpentek.sportify.viewmodel.MainViewModel;
@@ -73,13 +74,19 @@ public class MainFragment extends Fragment implements View.OnClickListener, Work
         workoutRecycleView.hasFixedSize();
         workoutRecycleView.setLayoutManager(new LinearLayoutManager(mainactivity.getContext()));
 
-        adapter = new WorkoutAdapter(this, suplly());
+        adapter = new WorkoutAdapter(this,new ArrayList<>());
         workoutRecycleView.setAdapter(adapter);
+
+        viewModel.getWorkouts().observe(getViewLifecycleOwner(), workouts->{
+            ArrayList<Workout> cahce= new ArrayList<>();
+            for(WorkoutWithSteps w: workouts){
+                cahce.add(w.workout);
+            }
+            adapter.UpdateSource(cahce);
+        });
+
     }
 
-    private ArrayList<Workout> suplly(){
-       return viewModel.getWorkouts();
-    }
 
     @Override
     public void onClick(View v) {
@@ -96,7 +103,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Work
     private void checkIfSignedIn() {
         viewModel.getCurrentUser().observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
-                viewModel.init(user);
+
             } else
                 startLoginActivity();
         });

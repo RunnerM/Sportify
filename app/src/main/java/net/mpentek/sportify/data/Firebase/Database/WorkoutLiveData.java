@@ -1,4 +1,4 @@
-package net.mpentek.sportify.data;
+package net.mpentek.sportify.data.Firebase.Database;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;

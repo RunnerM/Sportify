@@ -1,10 +1,9 @@
-package net.mpentek.sportify.data;
+package net.mpentek.sportify.data.Firebase.Auth;
 
 import android.app.Application;
 import androidx.lifecycle.LiveData;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.core.Context;
 
 public class FireUserRepository {
     private final FireUserLiveData currentUser;

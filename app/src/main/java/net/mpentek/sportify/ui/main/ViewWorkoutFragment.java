@@ -62,7 +62,7 @@ public class ViewWorkoutFragment extends Fragment implements View.OnClickListene
         super.onViewCreated(view, savedInstanceState);
         name = getActivity().findViewById(R.id.workout_name);
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        name.setText(viewModel.getWorkouts().get(viewModel.getSelectedWorkout()).getName());
+        //name.setText(viewModel.getWorkouts().get(viewModel.getSelectedWorkout()).getName());
 
         mainactivity= getActivity().findViewById(R.id.Main_activity);
         bar= mainactivity.findViewById(R.id.bottomAppBar);

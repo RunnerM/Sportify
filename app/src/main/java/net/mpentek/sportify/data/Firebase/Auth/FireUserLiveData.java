@@ -1,4 +1,4 @@
-package net.mpentek.sportify.data;
+package net.mpentek.sportify.data.Firebase.Auth;
 
 import androidx.lifecycle.LiveData;
 import com.google.firebase.auth.FirebaseAuth;

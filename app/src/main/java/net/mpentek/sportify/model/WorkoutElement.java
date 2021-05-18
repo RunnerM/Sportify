@@ -1,7 +1,26 @@
 package net.mpentek.sportify.model;
 
-public abstract class WorkoutElement {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class WorkoutElement {
+    @PrimaryKey(autoGenerate = true)
+    public int id;
+    public int workoutId;
     private String description;
+    private int rep;
+    private int weight;
+    private int min;
+    private int sec;
+
+    public int getRep() {
+        return rep;
+    }
+
+    public void setRep(int rep) {
+        this.rep = rep;
+    }
 
     public WorkoutElement(String description) {
         this.description = description;
@@ -16,5 +35,45 @@ public abstract class WorkoutElement {
     }
 
     public WorkoutElement() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getWorkoutId() {
+        return workoutId;
+    }
+
+    public void setWorkoutId(int workoutId) {
+        this.workoutId = workoutId;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public int getSec() {
+        return sec;
+    }
+
+    public void setSec(int sec) {
+        this.sec = sec;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }

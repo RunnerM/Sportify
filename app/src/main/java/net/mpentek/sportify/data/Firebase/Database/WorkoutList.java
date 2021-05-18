@@ -1,4 +1,4 @@
-package net.mpentek.sportify.data;
+package net.mpentek.sportify.data.Firebase.Database;
 
 import net.mpentek.sportify.model.Workout;
 

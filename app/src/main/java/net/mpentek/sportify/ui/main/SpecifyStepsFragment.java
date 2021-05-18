@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import net.mpentek.sportify.R;
 
-public class SpecifyStepsFragment extends Fragment {
-    RecyclerView recyclerView;
-
-
+public class SpecifyStepsFragment extends Fragment implements View.OnClickListener {
+    FloatingActionButton fab;
 
     public SpecifyStepsFragment() {
         // Required empty public constructor
@@ -34,9 +33,16 @@ public class SpecifyStepsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_specify_steps, container, false);
-//        recyclerView = getActivity().findViewById(R.id.recyclerview);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-//        recyclerView.setAdapter(new RandomNumListAdapter(1234));
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        fab= getActivity().findViewById(R.id.floating_button);
+        fab.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

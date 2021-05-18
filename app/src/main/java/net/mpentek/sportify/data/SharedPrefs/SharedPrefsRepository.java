@@ -1,9 +1,7 @@
-package net.mpentek.sportify.data;
+package net.mpentek.sportify.data.SharedPrefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import static android.content.Context.MODE_PRIVATE;
 

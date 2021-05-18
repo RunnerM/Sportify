@@ -1,6 +1,7 @@
 package net.mpentek.sportify.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import net.mpentek.sportify.R;
 import net.mpentek.sportify.model.Workout;
+import net.mpentek.sportify.viewmodel.AddViewModel;
 import net.mpentek.sportify.viewmodel.MainViewModel;
 
 public class AddFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -23,7 +25,11 @@ public class AddFragment extends Fragment implements View.OnClickListener, Adapt
     BottomAppBar bar;
     FloatingActionButton btn;
     EditText name;
-    MainViewModel viewModel;
+    AddViewModel viewModel;
+    int NumOfSteps;
+    String WorkoutType;
+    Spinner spinnerNumOf;
+    Spinner spinnerType;
 
     public AddFragment() {
         // Required empty public constructor
@@ -47,6 +53,7 @@ public class AddFragment extends Fragment implements View.OnClickListener, Adapt
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
     }
 
     @Override
@@ -55,21 +62,73 @@ public class AddFragment extends Fragment implements View.OnClickListener, Adapt
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add, container, false);
     }
+
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mainactivity= getActivity().findViewById(R.id.Main_activity);
-        bar= mainactivity.findViewById(R.id.bottomAppBar);
-        btn= mainactivity.findViewById(R.id.floating_button);
+        mainactivity = getActivity().findViewById(R.id.Main_activity);
+        bar = mainactivity.findViewById(R.id.bottomAppBar);
+        btn = mainactivity.findViewById(R.id.floating_button);
         btn.setOnClickListener(this);
         navController = Navigation.findNavController(view);
-        bar.getMenu().setGroupVisible(R.id.group,false);
+        bar.getMenu().setGroupVisible(R.id.group, false);
 
-        Spinner spinnerNumOf = mainactivity.findViewById(R.id.spinner_num_of);
-        Spinner spinnerType = mainactivity.findViewById(R.id.spinner_type);
+
+        name = mainactivity.findViewById(R.id.editTextName);
+        Button btn = mainactivity.findViewById(R.id.Button_specify_steps);
+        btn.setOnClickListener(this);
+
+
+        viewModel = new ViewModelProvider(this).get(AddViewModel.class);
+        setUpSpinners();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.floating_button:
+                getActivity().onBackPressed();
+                break;
+            case R.id.Button_specify_steps:
+                Workout w = new Workout();
+                w.setName(name.getText().toString());
+                w.setType(WorkoutType);
+                viewModel.setSteps(NumOfSteps);
+                navController.navigate(R.id.action_add_fragment_to_specify_step_fragment);
+
+        }
+    }
+
+    private void NavBarBackToMain() {
+        bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+        btn.setImageResource(R.drawable.ic_round_add_24);
+        bar.getMenu().setGroupVisible(R.id.group, true);
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+
+        if (parent.getId() == R.id.spinner_type) {
+            WorkoutType = parent.getItemAtPosition(pos).toString();
+        }
+        if (parent.getId() == R.id.spinner_num_of) {
+            NumOfSteps = Integer.parseInt(parent.getItemAtPosition(pos).toString());
+        }
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+    public void setUpSpinners(){
+
+        spinnerNumOf = mainactivity.findViewById(R.id.spinner_num_of);
+        spinnerType = mainactivity.findViewById(R.id.spinner_type);
 // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapterType = ArrayAdapter.createFromResource(getActivity(),
+        ArrayAdapter<CharSequence> adapterType = ArrayAdapter.createFromResource(mainactivity.getContext(),
                 R.array.type_array, android.R.layout.simple_spinner_item);
-        ArrayAdapter<CharSequence> adapterNumOf = ArrayAdapter.createFromResource(getActivity(),
+        ArrayAdapter<CharSequence> adapterNumOf = ArrayAdapter.createFromResource(mainactivity.getContext(),
                 R.array.num_of_steps_array, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -78,39 +137,8 @@ public class AddFragment extends Fragment implements View.OnClickListener, Adapt
         spinnerType.setAdapter(adapterType);
         spinnerNumOf.setAdapter(adapterNumOf);
 
-        name = mainactivity.findViewById(R.id.editTextName);
-        Button btn= mainactivity.findViewById(R.id.Button_specify_steps);
-        btn.setOnClickListener(this);
-
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.floating_button:
-                getActivity().onBackPressed();
-                break;
-            case R.id.Button_specify_steps:
-                viewModel.saveWorkout(new Workout());
-//                navController.navigate(R.id.action_add_fragment_to_specify_step_fragment);
-
-        }
-    }
-    private void NavBarBackToMain(){
-        bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
-        btn.setImageResource(R.drawable.ic_round_add_24);
-        bar.getMenu().setGroupVisible(R.id.group,true);
-    }
-
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
+        spinnerType.setOnItemSelectedListener(this);
+        spinnerNumOf.setOnItemSelectedListener(this);
     }
 
 }

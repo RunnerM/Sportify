@@ -1,4 +1,4 @@
-package net.mpentek.sportify.data;
+package net.mpentek.sportify.data.Firebase.Database;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -32,4 +32,5 @@ public class WorkoutRepository {
     public WorkoutLiveData getWorkout() {
         return workout;
     }
+
 }

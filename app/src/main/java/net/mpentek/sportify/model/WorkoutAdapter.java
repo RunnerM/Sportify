@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import net.mpentek.sportify.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHolder> {
 
@@ -51,6 +52,11 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
     }
     public interface OnListItemClickListener {
         void onListItemClick(int clickedItemIndex);
+    }
+
+    public void UpdateSource(List<Workout> workouts){
+        this.workouts= (ArrayList<Workout>) workouts;
+        notifyDataSetChanged();
     }
 
 
