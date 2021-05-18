@@ -11,10 +11,9 @@ public class WorkoutLiveData extends LiveData<WorkoutList> {
     private final ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-            WorkoutList workout = snapshot.getValue(WorkoutList.class);
-            setValue(workout);
+            WorkoutList workouts = snapshot.getValue(WorkoutList.class);
+            setValue(workouts);
         }
-
         @Override
         public void onCancelled(@NonNull DatabaseError error) {
         }

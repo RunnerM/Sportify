@@ -1,5 +1,6 @@
-package net.mpentek.sportify.ui;
+package net.mpentek.sportify.ui.main;
 
+import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import net.mpentek.sportify.R;
 import net.mpentek.sportify.viewmodel.MainViewModel;
 
@@ -78,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void pushNavToEnd(){
+    public void pushNavToEnd(){
         appBar.setFabAlignmentMode(appBar.FAB_ALIGNMENT_MODE_END);
         floating_btn.setImageResource(R.drawable.ic_baseline_arrow_back_24);
     }
-
 }

@@ -1,18 +1,15 @@
-package net.mpentek.sportify.ui;
+package net.mpentek.sportify.ui.main;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
 import net.mpentek.sportify.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SpecifyStepsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SpecifyStepsFragment extends Fragment {
+    RecyclerView recyclerView;
 
 
 
@@ -37,5 +34,9 @@ public class SpecifyStepsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_specify_steps, container, false);
+//        recyclerView = getActivity().findViewById(R.id.recyclerview);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+//        recyclerView.setAdapter(new RandomNumListAdapter(1234));
     }
 }

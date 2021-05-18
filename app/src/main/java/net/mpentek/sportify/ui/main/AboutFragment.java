@@ -1,4 +1,4 @@
-package net.mpentek.sportify.ui;
+package net.mpentek.sportify.ui.main;
 
 import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;

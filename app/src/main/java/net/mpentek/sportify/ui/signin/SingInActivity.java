@@ -1,4 +1,4 @@
-package net.mpentek.sportify.ui;
+package net.mpentek.sportify.ui.signin;
 
 import android.content.Intent;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.lifecycle.ViewModelProvider;
 import com.firebase.ui.auth.AuthUI;
 import net.mpentek.sportify.R;
-import net.mpentek.sportify.ui.MainActivity;
+import net.mpentek.sportify.ui.main.MainActivity;
 import net.mpentek.sportify.viewmodel.SignInViewModel;
 
 import java.util.Arrays;

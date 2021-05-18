@@ -1,4 +1,4 @@
-package net.mpentek.sportify.ui;
+package net.mpentek.sportify.ui.workout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

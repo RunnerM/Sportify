@@ -1,13 +1,8 @@
-package net.mpentek.sportify.ui;
+package net.mpentek.sportify.ui.main;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +14,6 @@ import androidx.navigation.Navigation;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import net.mpentek.sportify.R;
-import androidx.preference.PreferenceFragmentCompat;
 import net.mpentek.sportify.viewmodel.SettingsViewModel;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener {

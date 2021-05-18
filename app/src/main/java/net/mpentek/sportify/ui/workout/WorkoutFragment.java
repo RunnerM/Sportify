@@ -1,4 +1,4 @@
-package net.mpentek.sportify.ui;
+package net.mpentek.sportify.ui.workout;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
