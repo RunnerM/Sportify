@@ -7,7 +7,7 @@ import net.mpentek.sportify.model.WorkoutElement;
 
 import java.sql.Date;
 
-@Database(entities = {Workout.class,WorkoutElement.class}, version = 5)
+@Database(entities = {Workout.class,WorkoutElement.class}, version = 7)
 @TypeConverters({WorkoutDatabase.Converters.class})
 public abstract class WorkoutDatabase extends RoomDatabase {
 

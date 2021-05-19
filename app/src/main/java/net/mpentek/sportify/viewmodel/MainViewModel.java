@@ -45,17 +45,4 @@ public class MainViewModel extends AndroidViewModel {
     public int getSelectedWorkout() {
         return workoutSelected;
     }
-    public void saveWorkout(Workout workout){
-        Workout dummi= new Workout();
-        dummi.setName("name");
-        dummi.setType(ACTIVITY_TYPE.MOVING.toString());
-        ArrayList<WorkoutElement> steps= new ArrayList<>();
-        steps.add(new WorkoutElement("description"));
-
-        WorkoutWithSteps withSteps= new WorkoutWithSteps();
-        withSteps.workout= dummi;
-        withSteps.step= steps;
-
-        workoutRepository.addWorkout(withSteps);
-    }
 }

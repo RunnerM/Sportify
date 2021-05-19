@@ -64,7 +64,6 @@
               android:name="net.mpentek.sportify.ui.main.SpecifyStepsFragment"
               android:label="fargment_specify_steps"
               tools:layout="@layout/fragment_specify_steps">
-        <action android:id="@+id/action_specify_step_fragment_self" app:destination="@id/specify_step_fragment"/>
         <action android:id="@+id/action_specify_step_fragment_to_mainFragment" app:destination="@id/mainFragment"/>
     </fragment>
 

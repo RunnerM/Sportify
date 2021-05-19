@@ -78,11 +78,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Work
         workoutRecycleView.setAdapter(adapter);
 
         viewModel.getWorkouts().observe(getViewLifecycleOwner(), workouts->{
-            ArrayList<Workout> cahce= new ArrayList<>();
-            for(WorkoutWithSteps w: workouts){
-                cahce.add(w.workout);
-            }
-            adapter.UpdateSource(cahce);
+            adapter.UpdateSource(workouts);
         });
 
     }
@@ -117,8 +113,12 @@ public class MainFragment extends Fragment implements View.OnClickListener, Work
     @Override
     public void onListItemClick(int clickedItemIndex) {
         viewModel.setSelectedWorkout(clickedItemIndex);
-        navController.navigate(R.id.action_mainFragment_to_workout_view_fragment);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Selected",Integer.valueOf(clickedItemIndex).toString());
+        navController.navigate(R.id.action_mainFragment_to_workout_view_fragment,bundle);
         bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
         btn.setImageResource(R.drawable.ic_baseline_arrow_back_24);
+
     }
 }

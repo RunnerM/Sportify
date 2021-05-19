@@ -14,6 +14,7 @@ import androidx.navigation.Navigation;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import net.mpentek.sportify.R;
+import net.mpentek.sportify.data.Room.WorkoutWithSteps;
 import net.mpentek.sportify.viewmodel.MainViewModel;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
@@ -26,8 +27,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     TextView email;
     TextView NumOfWorkouts;
-    TextView Rang;
+    TextView Rank;
     TextView Profile;
+    WorkoutWithSteps workout;
 
 
     public ProfileFragment() {
@@ -71,7 +73,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         signOutBnt = mainactivity.findViewById(R.id.buttonSingOut);
         email = mainactivity.findViewById(R.id.emailTV);
         NumOfWorkouts = mainactivity.findViewById(R.id.workoutTV);
-        Rang = mainactivity.findViewById(R.id.rangTV);
+        Rank = mainactivity.findViewById(R.id.rangTV);
         Profile = mainactivity.findViewById(R.id.Profile_name);
 
         signOutBnt.setOnClickListener(this);
@@ -83,7 +85,27 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         navController = Navigation.findNavController(view);
         bar.getMenu().setGroupVisible(R.id.group, false);
 
+        viewModel.getWorkouts().observe(getViewLifecycleOwner(), workouts->{
+            int i = 0;
+            for (WorkoutWithSteps e:workouts) {
+                i++;
+            }
+            if(i<20){
+                Rank.setText(R.string.Beginner);
+            }else
+            if(i>20&&i<50){
+                Rank.setText(R.string.Advanced);
+            }else{
+                Rank.setText(R.string.Pro);
+            }
+            NumOfWorkouts.setText(Integer.valueOf(i).toString());
+
+
+
+        });
+
     }
+
 
     @Override
     public void onClick(View v) {

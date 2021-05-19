@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="120dp"/>
     <TextView
-            android:text="Please Sign In"
+            android:text="@string/Please_Sign_In"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView10"
             android:textSize="18sp"

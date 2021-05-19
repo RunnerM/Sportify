@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import net.mpentek.sportify.R;
+import net.mpentek.sportify.data.Room.WorkoutWithSteps;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +23,16 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
     }
 
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.name.setText(workouts.get(position).getName());
+        viewHolder.name.setText(workouts.get(position).workout.getName());
+        viewHolder.step.setText(Integer.valueOf(workouts.get(position).step.size()).toString()+" Steps");
+        viewHolder.date.setText(Integer.valueOf(workouts.get(position).workout.getYear()).toString()+
+                "/"+Integer.valueOf(workouts.get(position).workout.getMonth()).toString()+"/"
+                +Integer.valueOf(workouts.get(position).workout.getDay()).toString());
     }
 
-    private ArrayList<Workout> workouts;
+    private ArrayList<WorkoutWithSteps> workouts;
 
-    public WorkoutAdapter(OnListItemClickListener OnListItemClickListener, ArrayList<Workout> workouts){
+    public WorkoutAdapter(OnListItemClickListener OnListItemClickListener, ArrayList<WorkoutWithSteps> workouts){
         this.mOnListItemClickListener = OnListItemClickListener;
         this.workouts = workouts;
     }
@@ -38,10 +43,14 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView name;
+        TextView step;
+        TextView date;
 
         ViewHolder(View itemView) {
             super(itemView);
             name= itemView.findViewById(R.id.tv_name);
+            step = itemView.findViewById(R.id.step_no_text_item);
+            date = itemView.findViewById(R.id.text_date_item);
             itemView.setOnClickListener(this);
         }
 
@@ -54,8 +63,8 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
         void onListItemClick(int clickedItemIndex);
     }
 
-    public void UpdateSource(List<Workout> workouts){
-        this.workouts= (ArrayList<Workout>) workouts;
+    public void UpdateSource(List<WorkoutWithSteps> workouts){
+        this.workouts= (ArrayList<WorkoutWithSteps>) workouts;
         notifyDataSetChanged();
     }
 

@@ -13,7 +13,7 @@
 
 
         <TextView
-                android:text="Add"
+                android:text="@string/Add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView4"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -34,13 +34,13 @@
                 android:layout_marginStart="32dp" android:layout_marginEnd="32dp" android:spinnerMode="dropdown"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" android:layout_marginTop="8dp"/>
         <TextView
-                android:text="Workout Type"
+                android:text="@string/Workout_Type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView12"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/divider7"
                 android:layout_marginTop="16dp" android:layout_marginStart="24dp" android:textSize="18sp"/>
         <TextView
-                android:text="Work Name"
+                android:text="@string/Work_Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/divider8" app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp" android:layout_marginTop="8dp" android:layout_width="0dp"
-                android:hint="Run..."/>
+                android:hint="@string/Run"/>
         <View
                 android:id="@+id/divider9"
                 android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextName" android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
         <TextView
-                android:text="Number Of Steps"
+                android:text="@string/Number_Of_Steps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView16"
                 android:textSize="18sp"
@@ -86,12 +86,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView16" android:layout_marginTop="8dp"
                 android:layout_marginStart="32dp" android:layout_marginEnd="32dp"/>
         <Button
-                android:text="Specify steps"
+                android:text="@string/Specify_steps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/Button_specify_steps"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_num_of"/>
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/ButtonDate"/>
+        <TextView
+                android:text="@string/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView24"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="24dp" android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/divider14" android:layout_marginTop="8dp"/>
+        <View
+                android:id="@+id/divider14"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/spinner_num_of"
+                android:layout_marginTop="16dp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+        <Button
+                android:text="@string/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/ButtonDate"
+                app:layout_constraintTop_toBottomOf="@+id/textView24" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

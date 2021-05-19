@@ -15,6 +15,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import net.mpentek.sportify.R;
+import net.mpentek.sportify.data.Room.WorkoutWithSteps;
+import net.mpentek.sportify.model.WorkoutElement;
 import net.mpentek.sportify.viewmodel.MainViewModel;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,9 +24,13 @@ public class ViewWorkoutFragment extends Fragment implements View.OnClickListene
     NavController navController;
     MainViewModel viewModel;
     TextView name;
+    TextView type;
+    TextView steps;
     View mainactivity;
     BottomAppBar bar;
     FloatingActionButton btn;
+    WorkoutWithSteps workout;
+    int index;
 
     public ViewWorkoutFragment() {
         // Required empty public constructor
@@ -40,6 +46,12 @@ public class ViewWorkoutFragment extends Fragment implements View.OnClickListene
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mainactivity = getActivity().findViewById(R.id.Main_activity);
+        String indexAsString= this.getArguments().getString("Selected");
+         index= Integer.parseInt(indexAsString);
+
+
+
+
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
@@ -70,6 +82,23 @@ public class ViewWorkoutFragment extends Fragment implements View.OnClickListene
         btn.setOnClickListener(this);
         bar.getNavigationIcon().setVisible(false, true);
         navController = Navigation.findNavController(view);
+        type= getActivity().findViewById(R.id.type_text);
+        steps= getActivity().findViewById(R.id.steps_number);
+
+        workout = new WorkoutWithSteps();
+
+        viewModel.getWorkouts().observe(getViewLifecycleOwner(), workouts->{
+            workout=workouts.get(index);
+            name.setText(workout.workout.getName());
+            type.setText(workout.workout.getType());
+            int i = 0;
+            for (WorkoutElement e:workout.step) {
+                i++;
+            }
+            steps.setText(Integer.valueOf(i).toString());
+
+
+        });
     }
 
     public void onClick(View v) {

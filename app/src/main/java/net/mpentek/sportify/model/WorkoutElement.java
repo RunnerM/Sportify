@@ -11,6 +11,7 @@ public class WorkoutElement {
     private String description;
     private int rep;
     private int weight;
+    private int distance;
     private int min;
     private int sec;
 
@@ -75,5 +76,13 @@ public class WorkoutElement {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 }
