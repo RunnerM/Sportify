@@ -19,6 +19,7 @@ Should have:
 - [x] As a user I want to be able to use my phone as a coach so it walks me through step by step on my training. 
 - [x] As a user I want to be able to set time, distance, repetition, weight depending on a workout type so when my phone coaches me I can see the steps clearly.
 - [x] As a user I want to be able to redo workouts so I do not have to add every time a new workout.
+- [x] As a user I want to be able to choose between metric and imperial systems in the app so that I can better understand the app with my cultural background.
 
 Clould have:
 
