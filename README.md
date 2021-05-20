@@ -5,24 +5,28 @@ This application is a sport tracking application where the user can track their 
 
 Requirements:
 
-Critical Priority:
+Must have:
 
-- [ ] As a user I want to be able to log my training to a calendar.
-- [ ] As a user I want to be able to create plans in my calendar where I can specify training details.
-- [ ] As a user I want to be able to create an account so my data is saved and I can jump across devices freely.
+- [x] As a user I want to be able to log my training to a calendar.
+- [x] As a user I want to be able to create plans in my calendar where I can specify training details.
+- [x] As a user I want to be able to specify steps in the workout when adding workout so when I do the exercises I know clealy what to do.
+- [x] As a user I want to be able to create an account so my data is saved.
 
-High Priority:
+Should have:
 
-- [ ] As a user I want to be able to set reminders so my phone reminds me when I have to train.
-- [ ] As a user I want to be able to choose from a variaty of pre defined trainings.
-- [ ] As a user I want to be able to use my phone as a coach so it walks me through step by step on my training. 
-- [ ] As a user I want to be able to set time interval for individual tasks so my phone can tell me when to stop doing an exercise as well as track my rest time.
+- [x] As a user I want to be able to create various training types such as moving and strenght so I can do diferent kind of workout.
+- [x] As a user I want to be able to use my phone as a coach so it walks me through step by step on my training. 
+- [x] As a user I want to be able to set time, distance, repetition, weight depending on a workout type so when my phone coaches me I can see the steps clearly.
+- [x] As a user I want to be able to redo workouts so I do not have to add every time a new workout.
 
-Low Priority:
+Clould have:
 
-- [ ] As a user I want to be able to add calories that i consume so I can track my calorie intake and calories burnt.
-- [ ] As a user I want to be able to track my health mesures such as weight and body mesures so I can see my progress as well as motivate myself.
+- [x] As a user I want to be able to use the app in Hungarian Language so I can understad the application better.
+- [ ] As a user I want to be able to track my moving workouts with GPS so I can collect more data on my performance.
 - [ ] As a user I want to be able to able to see some insights of my data tracked so I can analize it better to improve my performance.
 
 
 References:
+
+- https://github.com/KasperKnop
+- https://developer.android.com
