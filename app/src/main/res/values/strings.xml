@@ -148,4 +148,5 @@
     <string name="steps">Steps</string>
     <string name="Step_1">Step 1</string>
     <string name="Step_counter_workout">Step </string>
+    <string name="pick_a_date">Pick a date</string>
 </resources>

@@ -38,4 +38,5 @@
     <string name="Step_1">1 lepes</string>
     <string name="Step_counter_workout">"Lepes "</string>
     <string name="Pound">font</string>
+    <string name="pick_a_date">Valasszon datumot</string>
 </resources>

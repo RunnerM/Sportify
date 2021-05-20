@@ -112,7 +112,7 @@ public class SpecifyStepsFragment extends Fragment implements View.OnClickListen
         } else if (workout.workout.getType().equals("STRENGTH")) {
             movingLayout.setVisibility(View.INVISIBLE);
         }
-        viewModel= new ViewModelProvider(this).get(AddViewModel.class);
+        viewModel = new ViewModelProvider(this).get(AddViewModel.class);
     }
 
     @Override
@@ -129,44 +129,59 @@ public class SpecifyStepsFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.add_step_btn:
-                AddStep();
-                ClearUI();
-                Toast.makeText(getActivity(), "Step added", Toast.LENGTH_SHORT).show();
-                break;
+                if (workout.workout.getType().equals(ACTIVITY_TYPE.MOVING.toString())) {
+                    if (description.getText().toString().equals("") || minutesEdit.getText().toString().equals("") || secondsEdit.getText().toString().equals("") || distance.getText().toString().equals("")) {
+                        Toast.makeText(getActivity(), "Please Fill out Fields", Toast.LENGTH_SHORT).show();
+                    } else {
+                        AddStep();
+                        ClearUI();
+                        Toast.makeText(getActivity(), "Step added", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                } else {
+                    if (description.getText().toString().equals("") || RepsEdit.getText().toString().equals("") || weightEdit.getText().toString().equals("")) {
+                        Toast.makeText(getActivity(), "Please Fill out Fields", Toast.LENGTH_SHORT).show();
+                    } else {
+                        AddStep();
+                        ClearUI();
+                        Toast.makeText(getActivity(), "Step added", Toast.LENGTH_SHORT).show();
+                    }
+                    }
+                    break;
+                }
         }
-    }
 
-    private void ClearUI() {
-        description.setText("");
-        minutesEdit.setText("");
-        secondsEdit.setText("");
-        RepsEdit.setText("");
-        weightEdit.setText("");
-        distance.setText("");
-        stepCounterTextView.setText("Step " + new Integer(stepCounter+1).toString());
-    }
+        private void ClearUI () {
+            description.setText("");
+            minutesEdit.setText("");
+            secondsEdit.setText("");
+            RepsEdit.setText("");
+            weightEdit.setText("");
+            distance.setText("");
+            stepCounterTextView.setText("Step " + new Integer(stepCounter + 1).toString());
+        }
 
-    public void AddStep() {
-        WorkoutElement element = new WorkoutElement();
-        element.setDescription(description.getText().toString());
-        if (workout.workout.getType().equals(ACTIVITY_TYPE.MOVING.toString())) {
-            element.setMin(Integer.parseInt(minutesEdit.getText().toString()));
-            element.setSec(Integer.parseInt(secondsEdit.getText().toString()));
-            element.setDistance(Integer.parseInt(distance.getText().toString()));
-        } else if (workout.workout.getType().equals(ACTIVITY_TYPE.STRENGTH.toString())) {
-            element.setRep(Integer.parseInt(RepsEdit.getText().toString()));
-            element.setWeight(Integer.parseInt(weightEdit.getText().toString()));
-        }
-        workout.step.add(element);
-        stepCounter++;
-        if(stepCounter == NumOfSteps){
-            workout.workout.setPlan(true);
-            viewModel.finalizeWorkout(workout);
-            navController.navigate(R.id.action_specify_step_fragment_to_mainFragment);
-            appbar.setVisibility(View.VISIBLE);
-            fab.setVisibility(View.VISIBLE);
-            appbar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
-            fab.setImageResource(R.drawable.ic_round_add_24);
+        public void AddStep () {
+            WorkoutElement element = new WorkoutElement();
+            element.setDescription(description.getText().toString());
+            if (workout.workout.getType().equals(ACTIVITY_TYPE.MOVING.toString())) {
+                element.setMin(Integer.parseInt(minutesEdit.getText().toString()));
+                element.setSec(Integer.parseInt(secondsEdit.getText().toString()));
+                element.setDistance(Integer.parseInt(distance.getText().toString()));
+            } else if (workout.workout.getType().equals(ACTIVITY_TYPE.STRENGTH.toString())) {
+                element.setRep(Integer.parseInt(RepsEdit.getText().toString()));
+                element.setWeight(Integer.parseInt(weightEdit.getText().toString()));
+            }
+            workout.step.add(element);
+            stepCounter++;
+            if (stepCounter == NumOfSteps) {
+                workout.workout.setPlan(true);
+                viewModel.finalizeWorkout(workout);
+                navController.navigate(R.id.action_specify_step_fragment_to_mainFragment);
+                appbar.setVisibility(View.VISIBLE);
+                fab.setVisibility(View.VISIBLE);
+                appbar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+                fab.setImageResource(R.drawable.ic_round_add_24);
+            }
         }
     }
-}

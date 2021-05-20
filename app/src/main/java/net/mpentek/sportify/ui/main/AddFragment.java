@@ -111,15 +111,21 @@ public class AddFragment extends Fragment implements View.OnClickListener, Adapt
                 getActivity().onBackPressed();
                 break;
             case R.id.Button_specify_steps:
-                w.workout.setName(name.getText().toString());
-                w.workout.setType(WorkoutType);
-                viewModel.setSteps(NumOfSteps);
-                Bundle bundle = new Bundle();
-                Gson gson = new Gson();
-                String WorkoutAsString = gson.toJson(w);
-                bundle.putString("workout", WorkoutAsString);
-                bundle.putString("counter", Integer.valueOf(NumOfSteps).toString());
-                navController.navigate(R.id.action_add_fragment_to_specify_step_fragment, bundle);
+                if (name.getText().toString().equals("")) {
+                    Toast.makeText(getActivity(), "Please fill out the add name!", Toast.LENGTH_SHORT).show();
+                } else if (w.workout.getDay() == 0) {
+                    Toast.makeText(getActivity(), "Please pick a date!", Toast.LENGTH_SHORT).show();
+                } else {
+                    w.workout.setName(name.getText().toString());
+                    w.workout.setType(WorkoutType);
+                    viewModel.setSteps(NumOfSteps);
+                    Bundle bundle = new Bundle();
+                    Gson gson = new Gson();
+                    String WorkoutAsString = gson.toJson(w);
+                    bundle.putString("workout", WorkoutAsString);
+                    bundle.putString("counter", Integer.valueOf(NumOfSteps).toString());
+                    navController.navigate(R.id.action_add_fragment_to_specify_step_fragment, bundle);
+                }
                 break;
             case R.id.ButtonDate:
                 final Calendar c = Calendar.getInstance();
@@ -130,9 +136,9 @@ public class AddFragment extends Fragment implements View.OnClickListener, Adapt
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
                         (view, year, monthOfYear, dayOfMonth) -> {
                             w.workout.setYear(year);
-                            w.workout.setMonth(monthOfYear+1);
+                            w.workout.setMonth(monthOfYear + 1);
                             w.workout.setDay(dayOfMonth);
-                            Log.i("","");
+                            Log.i("", "");
 
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
