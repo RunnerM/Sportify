@@ -9,6 +9,7 @@ Must have:
 
 - [x] As a user I want to be able to log my training to a calendar.
 - [x] As a user I want to be able to create plans in my calendar where I can specify training details.
+- [x] As a user I want to be able to specify steps in the workout when adding workout so when I do the exercises I know clealy what to do.
 - [x] As a user I want to be able to create an account so my data is saved.
 
 Should have:
@@ -26,3 +27,6 @@ Clould have:
 
 
 References:
+
+-https://github.com/KasperKnop
+-https://developer.android.com
