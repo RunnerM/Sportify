@@ -28,5 +28,5 @@ Clould have:
 
 References:
 
--https://github.com/KasperKnop
--https://developer.android.com
+- https://github.com/KasperKnop
+- https://developer.android.com
