@@ -3,11 +3,13 @@
              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ui.AboutFragment">
+             tools:context=".ui.main.AboutFragment"
+             >
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-                                                       android:layout_height="match_parent">
+                                                       android:layout_height="match_parent"
+                                                       android:background="@color/Background_color">
 
 
         <TextView
@@ -25,7 +27,7 @@
                 android:layout_marginTop="20dp" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
         <TextView
-                android:text="Developer"
+                android:text="@string/Developer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/divider3"
@@ -33,14 +35,14 @@
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
                 android:textSize="18sp"/>
         <TextView
-                android:text="Contact"
+                android:text="@string/Contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
                 android:layout_marginTop="32dp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp" android:textSize="18sp"/>
         <TextView
-                android:text="Marton Pentek"
+                android:text="@string/Marton_Pentek"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/divider3"
@@ -48,7 +50,8 @@
                 app:layout_constraintStart_toEndOf="@+id/textView6" app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintVertical_bias="0.617" android:textSize="18sp"/>
         <TextView
-                android:text="contact@mpentek.net"
+                android:text="@string/email"
+                android:autoLink="email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView9"
                 app:layout_constraintStart_toEndOf="@+id/textView7" app:layout_constraintEnd_toEndOf="parent"

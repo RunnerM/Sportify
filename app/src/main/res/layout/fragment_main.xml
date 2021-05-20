@@ -3,22 +3,37 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ui.MainFragment"
+             tools:context=".ui.main.MainFragment"
              android:id="@+id/mainFragment"
-             android:background="@drawable/background">
+             android:background="@color/Background_color" android:layout_weight="1">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:background="@color/white">
-
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/workoutRV"
-        />
-
-    </LinearLayout>
+                android:layout_height="match_parent">
+                <TextView
+                        android:text="@string/calendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/textView19" android:textSize="24sp"
+                        android:padding="5dp"/>
+                <View
+                        android:id="@+id/divider13"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="?android:attr/listDivider"
+                />
+                <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/workoutRV"
+                        android:layout_weight="5" android:paddingBottom="20dp">
+                </androidx.recyclerview.widget.RecyclerView>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp">
+                </LinearLayout>
+        </LinearLayout>
 
 
 </FrameLayout>

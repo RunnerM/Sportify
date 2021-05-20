@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="TextBlue">#00D9FF</color>
     <color name="workout_item_bg_color">#00FFFF</color>
+    <color name="Background_color">#E7FDFF</color>
 </resources>

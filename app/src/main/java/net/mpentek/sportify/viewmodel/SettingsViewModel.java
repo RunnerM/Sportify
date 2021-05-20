@@ -6,8 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-import net.mpentek.sportify.data.SharedPrefsRepository;
+import net.mpentek.sportify.data.SharedPrefs.SharedPrefsRepository;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

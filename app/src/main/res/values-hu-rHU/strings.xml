@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sportify</string>
+    <string name="settings">Beallitasok</string>
+    <string name="content_description_more">Beallitasok</string>
+    <string name="about">Rolunk</string>
+    <string name="sign_in">Bejelentkezes</string>
+    <string name="Mile">merfold</string>
+    <string name="Beginner">Kezdo</string>
+    <string name="Advanced">Halado</string>
+    <string name="Pro">Pro</string>
+    <string name="Please_Sign_In">Jelentkezzen Be</string>
+    <string name="Developer">Fejleszto</string>
+    <string name="Contact">Kapcsolat</string>
+    <string name="Add">Hozzaadas</string>
+    <string name="Workout_Type">Edzes tipus</string>
+    <string name="Work_Name">Edzes nev</string>
+    <string name="Run">Futas....</string>
+    <string name="Number_Of_Steps">Lepesek szama</string>
+    <string name="Specify_steps">Lepesek szerkesztese</string>
+    <string name="date">Datum</string>
+    <string name="calendar">Naptar</string>
+    <string name="profile">Profil</string>
+    <string name="email_display">Email</string>
+    <string name="no_of_workuouts">Edzesek szama</string>
+    <string name="rank">Rang</string>
+    <string name="log_out">Kijelenkezes</string>
+    <string name="distance">Tavolsag</string>
+    <string name="weight">Suly</string>
+    <string name="description">Leiras</string>
+    <string name="reps">Ismetles:</string>
+    <string name="minutes">Percek:</string>
+    <string name="seconds">Masodpercek:</string>
+    <string name="distance_">Tavolsag:</string>
+    <string name="type">Tipus</string>
+    <string name="moving_workout">Mozgo edzes</string>
+    <string name="steps">Lepesek</string>
+    <string name="Step_1">1 lepes</string>
+    <string name="Step_counter_workout">"Lepes "</string>
+    <string name="Pound">font</string>
+    <string name="pick_a_date">Valasszon datumot</string>
+</resources>
