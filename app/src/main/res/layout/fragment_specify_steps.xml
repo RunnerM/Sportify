@@ -43,7 +43,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/Strenght_layout" app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+                android:id="@+id/Strenght_layout_do" app:layout_constraintTop_toTopOf="@+id/linearLayout2"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="8dp">
 
@@ -84,7 +84,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="172dp"
-                android:id="@+id/Moving_layout" app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+                android:id="@+id/Moving_layout_do" app:layout_constraintTop_toTopOf="@+id/linearLayout2"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="8dp">
 

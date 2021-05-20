@@ -1,7 +1,6 @@
 package net.mpentek.sportify.ui.main;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,14 +14,12 @@ import android.view.ViewGroup;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import net.mpentek.sportify.R;
 import net.mpentek.sportify.data.Room.WorkoutWithSteps;
 import net.mpentek.sportify.model.ACTIVITY_TYPE;
-import net.mpentek.sportify.model.Workout;
 import net.mpentek.sportify.model.WorkoutElement;
 import net.mpentek.sportify.viewmodel.AddViewModel;
 
@@ -106,9 +103,9 @@ public class SpecifyStepsFragment extends Fragment implements View.OnClickListen
 
         addBtn.setOnClickListener(this);
 
-        stepCounterTextView.setText("Step " + stepCounter);
-        movingLayout = getActivity().findViewById(R.id.Moving_layout);
-        strengthLayout = getActivity().findViewById(R.id.Strenght_layout);
+        stepCounterTextView.setText(R.string.Step_1);
+        movingLayout = getActivity().findViewById(R.id.Moving_layout_do);
+        strengthLayout = getActivity().findViewById(R.id.Strenght_layout_do);
 
         if (workout.workout.getType().equals("MOVING")) {
             strengthLayout.setVisibility(View.INVISIBLE);
@@ -136,7 +133,6 @@ public class SpecifyStepsFragment extends Fragment implements View.OnClickListen
                 ClearUI();
                 Toast.makeText(getActivity(), "Step added", Toast.LENGTH_SHORT).show();
                 break;
-
         }
     }
 
@@ -164,6 +160,7 @@ public class SpecifyStepsFragment extends Fragment implements View.OnClickListen
         workout.step.add(element);
         stepCounter++;
         if(stepCounter == NumOfSteps){
+            workout.workout.setPlan(true);
             viewModel.finalizeWorkout(workout);
             navController.navigate(R.id.action_specify_step_fragment_to_mainFragment);
             appbar.setVisibility(View.VISIBLE);

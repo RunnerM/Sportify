@@ -34,6 +34,9 @@ public class AddViewModel extends AndroidViewModel {
     public void finalizeWorkout(WorkoutWithSteps workout){
         repository.addWorkout(workout);
     }
+    public void editWorkout(WorkoutWithSteps workout){
+        repository.updateWorkout(workout);
+    }
 
     public void saveDate(int year, int month, int day) {
         date= new Date(year, month, day);

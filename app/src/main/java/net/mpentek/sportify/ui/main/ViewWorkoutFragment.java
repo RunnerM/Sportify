@@ -1,6 +1,7 @@
 package net.mpentek.sportify.ui.main;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ public class ViewWorkoutFragment extends Fragment implements View.OnClickListene
     FloatingActionButton btn;
     WorkoutWithSteps workout;
     int index;
+    Button btnDoWorkout;
 
     public ViewWorkoutFragment() {
         // Required empty public constructor
@@ -84,6 +86,8 @@ public class ViewWorkoutFragment extends Fragment implements View.OnClickListene
         navController = Navigation.findNavController(view);
         type= getActivity().findViewById(R.id.type_text);
         steps= getActivity().findViewById(R.id.steps_number);
+        btnDoWorkout= getActivity().findViewById(R.id.button_do_workout);
+        btnDoWorkout.setOnClickListener(this);
 
         workout = new WorkoutWithSteps();
 
@@ -105,6 +109,11 @@ public class ViewWorkoutFragment extends Fragment implements View.OnClickListene
         switch (v.getId()) {
             case R.id.floating_button:
                 getActivity().onBackPressed();
+                break;
+            case R.id.button_do_workout:
+
+                navController.navigate(R.id.action_workout_view_fragment_to_do_workout,this.getArguments());
+                break;
         }
     }
     private void NavBarBackToMain(){

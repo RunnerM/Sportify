@@ -46,6 +46,12 @@ public class WorkoutDatabaseRepository {
             }
         });
     }
+    public void updateWorkout(WorkoutWithSteps workout){
+        executorService.execute(()-> {
+            workoutDAO.updateWorkout(workout.workout);
+        });
+
+    }
 
 
 }

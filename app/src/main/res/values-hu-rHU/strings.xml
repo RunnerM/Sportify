@@ -35,4 +35,7 @@
     <string name="type">Tipus</string>
     <string name="moving_workout">Mozgo edzes</string>
     <string name="steps">Lepesek</string>
+    <string name="Step_1">1 lepes</string>
+    <string name="Step_counter_workout">"Lepes "</string>
+    <string name="Pound">font</string>
 </resources>

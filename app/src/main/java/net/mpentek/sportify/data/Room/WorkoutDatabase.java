@@ -7,8 +7,7 @@ import net.mpentek.sportify.model.WorkoutElement;
 
 import java.sql.Date;
 
-@Database(entities = {Workout.class,WorkoutElement.class}, version = 7)
-@TypeConverters({WorkoutDatabase.Converters.class})
+@Database(entities = {Workout.class,WorkoutElement.class}, version =8)
 public abstract class WorkoutDatabase extends RoomDatabase {
 
     private static WorkoutDatabase instance;
@@ -24,17 +23,5 @@ public abstract class WorkoutDatabase extends RoomDatabase {
                     .build();
         }
         return instance;
-    }
-
-     static class Converters {
-        @TypeConverter
-        public static Date fromTimestamp(Long value) {
-            return value == null ? null : new Date(value);
-        }
-
-        @TypeConverter
-        public static Long dateToTimestamp(Date date) {
-            return date == null ? null : date.getTime();
-        }
     }
 }
