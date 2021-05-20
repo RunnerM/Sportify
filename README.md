@@ -2,7 +2,7 @@
 
 This application is a sport tracking application where the user can track their progress by logging their activities in calendar. The apllication will be also able to store training plans and it will also implement workout templates for the user. The application is targeted to any active person who is interested in tracking their trainings.
 
-Video: 
+Video: https://youtu.be/Y6B9J3dy6jg
 
 Requirements:
 
